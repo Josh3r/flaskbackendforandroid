@@ -31,12 +31,12 @@ def create():
     location = jsonified_req['location']
     category = jsonified_req['category']
     details = jsonified_req['details']
-
+    username = jsonified_req['username']
 
     db = get_db()
     db.execute(
         'INSERT INTO activities (title, date_created, date_activity, ppl, max_ppl, image_uri, venue, category, descrip, creator) VALUES (?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?)',
-        (title, date_activity, people, max_people, imageURI, location, category, details, g.user['username'])
+        (title, date_activity, people, max_people, imageURI, location, category, details, username)
     )
     db.commit()
     return jsonify({})

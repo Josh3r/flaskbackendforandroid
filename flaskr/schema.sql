@@ -20,7 +20,8 @@ CREATE TABLE activities (
     ppl INT, 
     image_uri IMAGE, 
     descrip TEXT, 
-    max_ppl INT
+    max_ppl INT,
+    username TEXT
 );
 
 CREATE TABLE registered (
