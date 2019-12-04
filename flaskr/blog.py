@@ -22,24 +22,25 @@ def index():
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
-    jsonified_req = request.get_json()
-    title = jsonified_req['title']
-    date_activity = jsonified_req['date_activity']
-    people = jsonified_req['people']
-    max_people = jsonified_req['max_people']
-    imageURI = jsonified_req['imageURI']
-    location = jsonified_req['location']
-    category = jsonified_req['category']
-    details = jsonified_req['details']
-    username = jsonified_req['username']
+    jsonified_req = request.get_json(force=True)
+    title = jsonified_req["title"]
+    date_activity = jsonified_req["date_activity"]
+    people = jsonified_req["people"]
+    max_people = jsonified_req["max_people"]
+    imageURI = jsonified_req["imageURI"]
+    location = jsonified_req["location"]
+    category = jsonified_req["category"]
+    details = jsonified_req["details"]
+    username = jsonified_req["username"]
+    num = jsonified_req["unq_id"]
 
     db = get_db()
     db.execute(
-        'INSERT INTO activities (title, date_created, date_activity, ppl, max_ppl, image_uri, venue, category, descrip, creator) VALUES (?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?)',
-        (title, date_activity, people, max_people, imageURI, location, category, details, username)
+        'INSERT INTO activities (unq_id, title, category, date_activity, creator, venue, ppl, image_uri, descrip, max_ppl,username) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
+        (num,title,category,date_activity,username,location,people,imageURI,details,max_people)
     )
     db.commit()
-    return jsonify({})
+    return ('it works')
 
 
 

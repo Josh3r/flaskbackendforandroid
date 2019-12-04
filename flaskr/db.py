@@ -63,16 +63,18 @@ def row2json_activities(table) :
     for row in table : 
 
         act_dict = {
-            "unq_id" : row[0], 
-            "category" : row[1],
-            "date_created" : str(row[2]),
-            "date_activity" : str(row[3]), 
-            "creator" : row[4],
-            "venue" : row[5] , 
-            "ppl" : row[6], 
-            "image_uri" : row[7],
-            "description" : row[8], 
-            "max_ppl" : row[9]
+            "unq_id" : row[0],
+            "title" : row[1],
+            "category" : row[2],
+            "date_created" : row[3],
+            "date_activity" : row[4],
+            "creator" : row[5],
+            "venue" : row[6],
+            "ppl" : row[7],
+            "image_uri" : row[8],
+            "descrip" : row[9],
+            "max_ppl" : row[10],
+            "username" : row[11]
         }
 
         activities.append(act_dict)

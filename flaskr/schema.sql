@@ -10,10 +10,10 @@ CREATE TABLE users (
 );
 
 CREATE TABLE activities (
-    unq_id INTEGER PRIMARY KEY ,
-    title TEXT NOT NULL,
+    unq_id INTEGER PRIMARY KEY,
+    title TEXT ,
     category TEXT , 
-    date_created DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+    date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     date_activity TEXT,
     creator TEXT,
     venue TEXT, 
